@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "641366fb-3d30-4735-9859-cd5e5e9ac62b",
+		"name": "[TEST NODEJS] - AAXIS",
+		"description": "To be able to use the API, it is necessary to create an authentication, for this we can execute the following script in our mongo:\n\n> db.api_auths.insertOne({username: 'nodejs', password: 'testingpassword', status: true})",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8226617"
+	},
+	"item": [
+		{
+			"name": "Check Authentication",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create Branches",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"branchName\":\"Branch name\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/branches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"branches"
+					]
+				},
+				"description": "```\n• opening and closing are optional parameters\n• days are an optional parameter with an array of numbers initially 0 as Sunday\n\n```\n\n``` json\n{\n\"opening\": \"18:00\",\n\"closing\": \"18:20\",\n\"days\": [0,1,2,3,4]\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Mechanic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Alejandro Moreno\",\n    \"email\": \"develop.km14@gmail.com\",\n    \"branch\": \"Hola\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/mechanic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mechanic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schedule Mechanic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mechanic\": \"Mechanic Name\", \n    \"name\": \"Alejandro Moreno\", \n    \"email\": \"develop.km14@gmail.com\", \n    \"date\": \"2022-12-25 19:23\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/mechanic/schedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mechanic",
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Branches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/mechanics/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mechanics",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "testingpassword",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "nodejs",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
